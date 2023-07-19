@@ -69,10 +69,12 @@ class BasicJSONRPCHandler(RequestHandler):
             method_result = await self.compute_result(request)
             if not request.is_notification:
                 if request.version == '1.0':
+                    self.set_status(200, "OK")
                     return {"id": request.id,
                             "result": method_result,
                             "error": None}
                 else:
+                    self.set_status(200, "OK")
                     return {"jsonrpc": "2.0",
                             "id": request.id,
                             "result": method_result}
@@ -82,6 +84,8 @@ class BasicJSONRPCHandler(RequestHandler):
         except Exception as error:
             if not request.is_notification:
                 return self.exception_to_jsonrpc(InternalError(str(error)), request)
+        if request.is_notification:
+            self.set_status(204,"No Content")
 
     def exception_to_jsonrpc(self, exception: JSONRPCError, request=None) -> dict:
         assert isinstance(exception, JSONRPCError)
