@@ -1,4 +1,4 @@
-# 🐍🌪️ tornado-jsonrpc2
+#  tornado-jsonrpc2
 
 [![Build Status](https://travis-ci.com/okin/tornado-jsonrpc2.svg?branch=development)](https://travis-ci.com/okin/tornado-jsonrpc2)
 [![codecov](https://codecov.io/gh/okin/tornado-jsonrpc2/branch/development/graph/badge.svg)](https://codecov.io/gh/okin/tornado-jsonrpc2)
